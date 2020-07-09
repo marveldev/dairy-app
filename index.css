@@ -1,0 +1,54 @@
+body {
+  display: grid;
+  justify-content: center;
+}
+
+.title {
+  color: rgb(17, 17, 114);
+  margin-bottom: 1em;
+}
+
+.entry-textbox {
+  background-color: rgb(255, 112, 10);
+  width: 20em;
+  height: 10em;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border: unset;
+  outline: none;
+  border-radius: 25px;
+}
+
+.button {
+  border: unset;
+  border-radius: 25%;
+  font-weight: bold;
+  padding: 10px 16px;
+  outline: none;
+}
+
+.entries-nav {
+  background-color: #16697A;
+  color: whitesmoke;
+  font-family: cursive;
+  border: unset;
+  border-radius: 25px;
+  padding: 2em;
+  width: 20em;
+  margin-top: 1em;
+}
+
+.display-entry-button {
+  display: block;
+  padding: 5px 15px;
+  font-weight: bold;
+  margin: 5px;
+  border: unset;
+  border-radius: 25%;
+  outline: none;
+}
+
+.display-entry-button:hover, .button:hover {
+  cursor: pointer;
+  background-color: rgb(171, 218, 218);
+}
