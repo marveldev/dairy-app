@@ -1,7 +1,9 @@
 const entryForm = document.getElementById('entry-form');
-const entriesSection = document.querySelector('.entries-section');
 const entryTextBox = document.querySelector('.entry-textbox');
 const entryNav = document.querySelector('.entries-nav');
+const entry = document.querySelector('.entries');
+const buttonClear = document.querySelector('.button-clear');
+
 let count = 1;
 
 function addEntryToDom(event) {
@@ -9,7 +11,7 @@ function addEntryToDom(event) {
   const entryDiv = document.createElement('span');
   entryDiv.className = 'single-entry';
   entryDiv.style.display = 'none';
-  entryDiv.innerText = entryTextBox.value;
+  entryDiv.innerText =   entryTextBox.value + '\n' + new Date().toLocaleString();
 
   const displayEntryButton = document.createElement('button');
   displayEntryButton.className = 'display-entry-button';
@@ -24,9 +26,12 @@ function addEntryToDom(event) {
 
   count++
 
-  entryNav.appendChild(entryDiv);
   entryNav.appendChild(displayEntryButton);
-  entriesSection.appendChild(entryNav);
+  entry.appendChild(entryDiv);
   entryTextBox.value = '';
 }
 entryForm.addEventListener('submit', addEntryToDom);
+
+buttonClear.addEventListener('click', () => {
+  entryTextBox.value = '';
+})
