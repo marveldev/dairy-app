@@ -10,13 +10,14 @@ body {
 
 .entry-textbox {
   background-color: rgb(255, 112, 10);
-  width: 20em;
+  width: 27em;
   height: 10em;
   padding: 1em;
   margin-bottom: 0.5em;
   border: unset;
   outline: none;
   border-radius: 25px;
+  resize: none;
 }
 
 .button {
@@ -24,10 +25,26 @@ body {
   border-radius: 25%;
   font-weight: bold;
   padding: 10px 16px;
+  margin-left: 17em;
   outline: none;
 }
 
-.entries-nav {
+.button:active, .button-clear:active {
+  transform: translateY(4px);
+}
+
+.display-entry-button:focus {
+  background-color: #008000;
+}
+
+.button-clear {
+  border: unset;
+  border-radius: 25%;
+  font-weight: bold;
+  padding: 10px 16px;
+  outline: none;
+}
+.entries-section {
   background-color: #16697A;
   color: whitesmoke;
   font-family: cursive;
@@ -39,7 +56,6 @@ body {
 }
 
 .display-entry-button {
-  display: block;
   padding: 5px 15px;
   font-weight: bold;
   margin: 5px;
@@ -48,7 +64,9 @@ body {
   outline: none;
 }
 
-.display-entry-button:hover, .button:hover {
+.display-entry-button:hover, .button:hover, .button-clear:hover {
   cursor: pointer;
   background-color: rgb(171, 218, 218);
 }
+
+
