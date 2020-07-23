@@ -33,10 +33,6 @@ body {
   transform: translateY(4px);
 }
 
-.display-entry-button:focus {
-  background-color: #008000;
-}
-
 .button-clear {
   border: unset;
   border-radius: 25%;
@@ -55,13 +51,17 @@ body {
   margin-top: 1em;
 }
 
+.entries-nav {
+  padding-bottom: 1em;
+}
+
 .display-entry-button {
-  padding: 5px 15px;
-  font-weight: bold;
-  margin: 5px;
-  border: unset;
-  border-radius: 25%;
-  outline: none;
+  margin: 0 0.2em;
+  font-family: cursive;
+}
+
+.display-entry-button:focus {
+  background-color: #008000;
 }
 
 .display-entry-button:hover, .button:hover, .button-clear:hover {
