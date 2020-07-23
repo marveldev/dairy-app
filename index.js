@@ -8,28 +8,28 @@ let count = 1;
 
 function addEntryToDom(event) {
   event.preventDefault();
-  const entryDiv = document.createElement('span');
-  entryDiv.className = 'single-entry';
-  entryDiv.style.display = 'none';
-  entryDiv.innerText =   entryTextBox.value + '\n' + new Date().toLocaleString();
 
-  const displayEntryButton = document.createElement('button');
-  displayEntryButton.className = 'display-entry-button';
-  displayEntryButton.innerText = count;
-  displayEntryButton.addEventListener('click', function () {
-    const allEntries = document.querySelectorAll('.single-entry');
-    for (let index = 0; index < allEntries.length; index++) {
-      allEntries[index].style.display = 'none';
-    }
-    entryDiv.style.display = 'block';
-  })
+  const entryTextBoxValue = entryTextBox.value + '\n' + new Date().toLocaleString();
 
-  count++
+  const entryDiv = `
+  <span class="single-entry">${entryTextBoxValue}</span>
+  <button class="display-entry-button">${count}</button>
+  `
 
-  entryNav.appendChild(displayEntryButton);
-  entry.appendChild(entryDiv);
+  entryNav.innerHTML += entryDiv;
   entryTextBox.value = '';
+  
+  const displayEntryButtons = document.querySelectorAll('.display-entry-button')
+  
+  displayEntryButtons.forEach(displayEntryButton => {
+    displayEntryButton.addEventListener('click', function displayDiary() {
+      displayEntryButton.previousElementSibling.style.display = 'block'
+    })
+  });
+  
+  count++
 }
+
 entryForm.addEventListener('submit', addEntryToDom);
 
 buttonClear.addEventListener('click', () => {
