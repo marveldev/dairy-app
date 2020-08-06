@@ -33,6 +33,14 @@ body {
   transform: translateY(4px);
 }
 
+.button-clear:focus,
+.entry-textbox:focus,
+.button:focus {
+  background-color: #abdada;
+  text-decoration: underline;
+  box-shadow: 0 4px 8px 0 #00000033;
+}
+
 .button-clear {
   border: unset;
   border-radius: 25%;
@@ -66,7 +74,9 @@ body {
 
 .display-entry-button:hover, .button:hover, .button-clear:hover {
   cursor: pointer;
-  background-color: rgb(171, 218, 218);
+  background-color: #abdada;
 }
 
-
+.single-entry {
+  display: none;
+}

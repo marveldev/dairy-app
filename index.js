@@ -6,12 +6,15 @@ const buttonClear = document.querySelector('.button-clear');
 
 let count = 1;
 
-const displayEntry = function(element) {
+JSON.parse(localStorage.getItem('dataStore'))
+
+function displayEntry(element) {
   const allEntries = document.querySelectorAll('.single-entry');
-    for (let index = 0; index < allEntries.length; index++) {
-        allEntries[index].style.display = 'none';
-    }
-  const entryDiv = document.getElementById(element.innerText);
+  allEntries.forEach(allEntry => {
+    allEntry.style.display = 'none';
+  });
+  const currentSpanId = element.innerText;
+  const entryDiv = document.getElementById(currentSpanId);
   entryDiv.style.display = 'block';
 }
 
@@ -34,6 +37,18 @@ function addEntryToDom(event) {
   entriesNav.innerHTML += displayEntryButton;
   
   entryTextBox.value = '';
+
+  const indexValuePair = {
+    index: count,
+    entryTextBoxValue: entryTextBoxValue
+  };
+  
+  let dataStore = JSON.parse(localStorage.getItem('dataStore')) || [];
+  
+  dataStore.push(indexValuePair);
+  localStorage.setItem('dataStore', JSON.stringify(dataStore));
+
+  localStorage.setItem('index', count);
   count++
 }
 
